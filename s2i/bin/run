@@ -8,5 +8,5 @@ echo "--> # APP_TARGET = $APP_TARGET"
 echo "--> # JAVA_OPTS = $JAVA_OPTS"
 echo "---> Running application from standalone jar..."
 #java $JAVA_OPTS -jar `find $APP_TARGET -maxdepth 1 -regex ".*\(jar\|war\)"`
-echo "--> Picking the jar file inventoryservice-1.0.0.jar"
-java $JAVA_OPTS -jar inventoryservice-1.0.0.jar
+#echo "--> Picking the jar file"
+java $JAVA_OPTS -jar `find . -maxdepth 1 -regex ".*\(jar\|war\)"`
