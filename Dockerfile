@@ -29,7 +29,7 @@ ENV JAVA_HOME /usr/lib/jvm/java
 # Add configuration files, bashrc and other tweaks
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 
-RUN chown 1001:0 ./
+RUN chown -R 1001:0 ./
 USER 1001
 
 # Set the default CMD to print the usage of the language image
