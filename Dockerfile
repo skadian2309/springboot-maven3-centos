@@ -19,17 +19,17 @@ RUN yum install -y curl && \
   yum install -y java-$JAVA_VERSON-openjdk java-$JAVA_VERSON-openjdk-devel && \
   yum clean all
 
-RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
-  && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
-  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+#RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
+#  && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
+#  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
 ENV JAVA_HOME /usr/lib/jvm/java
-ENV MAVEN_HOME /usr/share/maven
+#ENV MAVEN_HOME /usr/share/maven
 
 # Add configuration files, bashrc and other tweaks
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 
-RUN chown -R 1001:0 ./
+RUN chown 1001:0 ./
 USER 1001
 
 # Set the default CMD to print the usage of the language image
